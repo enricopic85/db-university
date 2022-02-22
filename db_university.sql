@@ -50,4 +50,4 @@ FROM `departments`;
 
 SELECT * 
 FROM `teachers`
-WHERE `phone` is NOT NULL;
+WHERE `phone` is NULL;
