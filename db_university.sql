@@ -23,6 +23,11 @@ laurea (286);
 SELECT * FROM `courses`
 WHERE `period` NOT LIKE 'II%'
 AND `year`= 1;
+-- oppure
+SELECT * 
+FROM `courses`
+WHERE `period` LIKE 'I %'
+AND `year` = 1;
 
 #Selezionare tutti gli appelli d esame che avvengono nel pomeriggio(dopo le 14) del 20/06/2021(21);
 SELECT * 
