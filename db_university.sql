@@ -23,18 +23,19 @@ laurea (286);
 
 SELECT * FROM `courses`
 WHERE `period` NOT LIKE 'II%'
-AND `year`= 1;
+    AND `year`= 1;
 -- oppure
 SELECT * 
 FROM `courses`
 WHERE `period` LIKE 'I %'
-AND `year` = 1;
+    AND `year` = 1;
+ORDER BY `period` DESC;
 
 #Selezionare tutti gli appelli d esame che avvengono nel pomeriggio(dopo le 14) del 20/06/2021(21);
 SELECT * 
 FROM `exams`
 WHERE `date` = '2020-06-20'
-AND `hour` > '14:00:00';
+    AND `hour` > '14:00:00';
 
 #Selezionare tutti i corsi di laurea magistrale(38);
 
@@ -49,6 +50,6 @@ FROM `departments`;
 
 #Quanti sono gli insegnanti che non hanno un numero di telefono?(50);
 
-SELECT * 
+SELECT COUNT(`id`) 
 FROM `teachers`
-WHERE `phone` is NULL;
+WHERE `phone` IS NULL;
