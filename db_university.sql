@@ -17,6 +17,11 @@ SELECT *
 FROM `students`
 WHERE YEAR(CURRENT_DATE) - YEAR(`date_of_birth`) > 30
 ORDER BY YEAR(`date_of_birth`) DESC;
+-- oppure
+SELECT * 
+FROM `students`
+WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURRENT_DATE) > 30
+ORDER BY YEAR(`date_of_birth`) DESC;
 
 #Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
 laurea (286);
@@ -53,3 +58,26 @@ FROM `departments`;
 SELECT COUNT(`id`) 
 FROM `teachers`
 WHERE `phone` IS NULL;
+
+#Contare quanti iscritti ci sono stati ogni anno
+
+SELECT COUNT(*), YEAR(`enrolment_date`)
+FROM `students`
+GROUP BY YEAR(`enrolment_date`);
+
+#Contare gli insegnanti che hanno l ufficio nello stesso edificio
+
+SELECT COUNT(*), `office_number`
+FROM `teachers`
+GROUP BY `office_number`;
+
+#calcolare la media dei voti di ogni appello d esame
+SELECT AVG(`vote`), `exam_id`
+FROM `exam_student`
+GROUP BY `exam_id`;
+
+#contare quanti corsi di laurea ci sono per ogni dipartimento
+
+SELECT COUNT(*),`degree_id`
+FROM `courses`
+GROUP BY `degree_id`;
